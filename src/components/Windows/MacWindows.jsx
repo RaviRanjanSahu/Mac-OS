@@ -2,7 +2,7 @@ import React from 'react'
 import {Rnd} from 'react-rnd'
 import "./Window.scss"
 
-const MacWindows = () => {
+const MacWindows = ({children}) => {
   return (
     <Rnd>
 
@@ -13,8 +13,13 @@ const MacWindows = () => {
             <div className="dot yellow"></div>
             <div className="dot green"></div>
           </div>
+          <div className="title">
+            <p>raviranjansahu - zsh</p>
+          </div>
         </div>
-        <div className="main-content"></div>
+        <div className="main-content">
+          {children}
+        </div>
 
       </div>
     </Rnd>

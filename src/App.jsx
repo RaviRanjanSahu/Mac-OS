@@ -2,7 +2,7 @@ import { useState } from 'react'
 import "./App.scss"
 import Dock from './components/Dock'
 import Nav from './components/Nav'
-import MacWindows from './components/Windows/MacWindows'
+import Github from './components/Windows/Github'
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
     <main>
       <Nav />
       <Dock />
-      <MacWindows />
+      <Github />
     </main>
   )
 }
