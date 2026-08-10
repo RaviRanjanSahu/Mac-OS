@@ -2,12 +2,12 @@ import React from 'react'
 import {Rnd} from 'react-rnd'
 import "./Window.scss"
 
-const MacWindows = ({children}) => {
+const MacWindows = ({children, width= "40vw", height= "60vh"}) => {
   return (
     <Rnd 
       default={{
-        width: "40vw",
-        height: "40vh",
+        width: width,
+        height: height,
         x: 300,
         y: 200
       }}
