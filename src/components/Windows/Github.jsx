@@ -1,35 +1,39 @@
 import React from 'react'
-import GithubData from '../../assets/Github.json'
-import MacWindows from './MacWindows'
-import "./Github.scss"
+import githubData from "../../assets/github.json"
+import MacWindow from './MacWindow'
+import "./github.scss"
 
-const GitCard = ({data = {id:1, image:"", title:"", description:"", tags:[], repolink:"", demolink:""}}) => {
-  return <div className="card">
-    <img src={data.image} alt="" />
-    <h1>{data.title}</h1>
-    <p className='description'>{data.description}</p>
+const GitCard = ({ data = { id: 1, image: "", title: "", description: "", tags: [], repoLink: "", demoLink: "" } }) => {
+    return <div className="card">
 
-    <div className="tags">
-      {data.tags.map(tag => <p className='tag'>{tag}</p>)}
+        <img src={data.image} alt="" />
+        <h1>{data.title}</h1>
+        <p className='description' >{data.description}</p>
+
+        <div className="tags">
+            {
+                data.tags.map(tag => <p className='tag' >{tag}</p>)
+            }
+        </div>
+
+        <div className="urls">
+            <a href={data.repoLink}>Repository</a>
+            {data.demoLink && <a href={data.demoLink}>Demo link</a>}
+        </div>
     </div>
-
-    <div className="urls">
-      <a href={data.repolink}>repository</a>
-      {data.demolink && <a href= {data.demolink}>Demo Link</a>}
-    </div>
-  </div>
 }
 
-const github = () => {
-  return (
-    <MacWindows>
-      <div className="cards">
-        {GithubData.map(project => {
-          return <GitCard data = {project} />
-        })}
-      </div>
-    </MacWindows>
-  )
+
+const Github = ({ windowName, setWindowsState }) => {
+    return (
+        <MacWindow windowName={windowName} setWindowsState={setWindowsState} >
+            <div className="cards">
+                {githubData.map(project => {
+                    return <GitCard data={project} />
+                })}
+            </div>
+        </MacWindow>
+    )
 }
 
-export default github
+export default Github

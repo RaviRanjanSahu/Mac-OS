@@ -1,37 +1,34 @@
 import React from 'react'
-import {Rnd} from 'react-rnd'
-import "./Window.scss"
+import { Rnd } from 'react-rnd'
+import "./window.scss"
 
-const MacWindows = ({children, width= "40vw", height= "60vh"}) => {
-  return (
-    <Rnd 
-      default={{
-        width: width,
-        height: height,
-        x: 300,
-        y: 200
-      }}
-    >
+const MacWindows = ({ children, width = "40vw", height = "40vh", windowName, setWindowsState }) => {
+    return (
+        <Rnd
+            default={{
+                width: width,
+                height: height,
+                x: 300,
+                y: 200
+            }}
+        >
+            <div className="window">
+                <div className="nav">
+                    <div className="dots">
+                        <div onClick={() => setWindowsState(state => ({ ...state, [windowName]: false }))} className="dot red"></div>
+                        <div className="dot yellow"></div>
+                        <div className="dot green"></div>
+                    </div>
 
-      <div className="window">
-        <div className="nav">
-          <div className="dots">
-            <div className="dot red"></div>
-            <div className="dot yellow"></div>
-            <div className="dot green"></div>
-          </div>
-          <div className="title">
-            <p>raviranjansahu - zsh</p>
-          </div>
-        </div>
-        <div className="main-content">
-          {children}
-        </div>
+                    <div className="title"><p>ankurprajapti - zsh</p></div>
 
-      </div>
-    </Rnd>
-  )
+                </div>
+                <div className="main-content">
+                    {children}
+                </div>
+            </div>
+        </Rnd>
+    )
 }
 
 export default MacWindows
-
